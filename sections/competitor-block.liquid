@@ -1,0 +1,253 @@
+{% schema %}
+{
+  "name": "Competitor Block",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our pods vs."
+    },
+    {
+      "type": "text",
+      "id": "heading-two",
+      "label": "Heading Two",
+      "default": "their pods."
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "tab_color",
+      "label": "Tab Color",
+      "default": "#f6f2f0"
+    },
+    {
+      "type": "color",
+      "id": "tab_color_highlight",
+      "label": "Tab Color Highlight",
+      "default": "#f5dadf"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Try Grind now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "competitor",
+      "name": "Competitor",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Competitor Image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price",
+          "default": "£0.00"
+        },
+        {
+          "type": "textarea",
+          "id": "features",
+          "label": "Features (one per line)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Competitor Block",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="competitor-comparison" style="background-color: {{ section.settings.background_color }};">
+  <div class="container">
+    <div class="competitor-comparison__container">
+
+      {% if section.settings.heading != blank %}
+      <h2 class="competitor-comparison__heading mb-4">
+        {{ section.settings.heading }}
+        <span>{{ section.settings.heading-two }}</span>
+      </h2>
+      {% endif %}
+
+      <div class="competitor-comparison__tabs mb-6 mx-auto" role="tablist"
+        style="background-color: {{ section.settings.tab_color }};">
+        {% for block in section.blocks %}
+        {% assign tab_id = 'tab-' | append: block.id %}
+        {% assign panel_id = 'panel-' | append: block.id %}
+
+        <button class="competitor-comparison__tab"
+          role="tab" id="{{ tab_id }}" aria-controls="{{ panel_id }}"
+          aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+          tabindex="{% if forloop.first %}0{% else %}-1{% endif %}">
+          {{ block.settings.name }}
+        </button>
+        {% endfor %}
+      </div>
+
+      <div class="competitor-comparison__grid">
+        {% for block in section.blocks %}
+        <div class="competitor-comparison__block" id="panel-{{ block.id }}" role="tabpanel"
+          aria-labelledby="tab-{{ block.id }}">
+          {% if block.settings.image %}
+          <img src="{{ block.settings.image | img_url: '400x' }}" alt="Competitor image"
+            class="competitor-comparison__image" height="160px" width="160px">
+          {% endif %}
+
+          {% if block.settings.price %}
+          <p class="competitor-comparison__price mb-2">
+            <span class="competitor-comparison__price-item">From</span>
+            <span class="competitor-comparison__price-total mt-2">{{ block.settings.price }}</span>
+            <span class="competitor-comparison__price-item">Per month</span>
+          </p>
+          {% endif %}
+
+          {% if block.settings.features %}
+          <ul
+            class="competitor-comparison__features text-center {% if forloop.index == 2 %}competitor-comparison__features--positive{% endif %}">
+            {% assign features = block.settings.features | newline_to_br | split: '<br />' %}
+            {% for feature in features %}
+            <li class="competitor-comparison__features-item">{{ feature }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+
+      {% if section.settings.button_text != blank and section.settings.button_link != blank %}
+      <div class="col-12 mx-auto text-center">
+        <a href="{{ section.settings.button_link }}" class="competitor-comparison__cta btn">
+          {{ section.settings.button_text }}
+        </a>
+      </div>
+      {% endif %}
+
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+let competitorSwiper;
+
+document.addEventListener("DOMContentLoaded", () => {
+  const tabs = document.querySelectorAll(".competitor-comparison__tab");
+  const grid = document.querySelector(".competitor-comparison__grid");
+
+  function setActiveTab(index) {
+    tabs.forEach((tab, i) => {
+      const isActive = i === index;
+      tab.classList.remove("competitor-comparison__tab--active");
+
+      if (isActive) {
+        tab.classList.add("competitor-comparison__tab--active");
+        tab.style.backgroundColor = "{{ section.settings.tab_color_highlight }}";
+      } else {
+        tab.style.backgroundColor = "#ffffff";
+      }
+      tab.setAttribute("aria-selected", isActive ? "true" : "false");
+      tab.setAttribute("tabindex", isActive ? "0" : "-1");
+    });
+  }
+
+  function initSwiper() {
+    if (!grid) return;
+
+    if (window.innerWidth < 768 && !competitorSwiper) {
+      grid.classList.add("swiper-container");
+
+      const slides = Array.from(grid.children);
+      const wrapper = document.createElement("div");
+      wrapper.classList.add("swiper-wrapper");
+
+      slides.forEach((slide) => {
+        slide.classList.add("swiper-slide");
+        wrapper.appendChild(slide);
+      });
+
+      grid.innerHTML = "";
+      grid.appendChild(wrapper);
+
+      competitorSwiper = new Swiper(grid, {
+        slidesPerView: 1,
+        centeredSlides: true,
+        spaceBetween: 0,
+        initialSlide: 1,
+        speed: 400,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+
+      competitorSwiper.on("slideChange", () => {
+        setActiveTab(competitorSwiper.realIndex);
+      });
+
+      tabs.forEach((tab, index) => {
+        tab.addEventListener("click", () => {
+          competitorSwiper.slideTo(index);
+          setActiveTab(index);
+        });
+      });
+
+      setActiveTab(competitorSwiper.realIndex);
+    }
+
+    if (window.innerWidth >= 768 && competitorSwiper) {
+      competitorSwiper.destroy(true, true);
+      competitorSwiper = null;
+
+      const wrapper = grid.querySelector(".swiper-wrapper");
+      if (wrapper) {
+        while (wrapper.firstChild) {
+          grid.appendChild(wrapper.firstChild);
+        }
+        wrapper.remove();
+        grid.classList.remove("swiper-container");
+      }
+    }
+
+    if (window.innerWidth >= 768) {
+      setActiveTab(1);
+    }
+  }
+
+  initSwiper();
+  window.addEventListener("resize", initSwiper);
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => {
+      if (!competitorSwiper) {
+        setActiveTab(index);
+      }
+    });
+  });
+});
+
+</script>

@@ -1,0 +1,10 @@
+$pink: #f6dbdf;
+$font-family-base: "ApercuPro", sans-serif;
+$font-family-heading: "argent-cf", sans-serif;
+
+@use "bootstrap/scss/bootstrap" with (
+  $font-family-base: $font-family-base,
+  $headings-font-family: $font-family-heading,
+  $primary: $pink,
+  $link-color: black
+);

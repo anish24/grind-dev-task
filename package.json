@@ -1,0 +1,31 @@
+{
+  "name": "2025-frontend-codetest",
+  "version": "1.0.0",
+  "description": "base theme for grind frontend code test",
+  "main": "src/scripts/index.js",
+  "scripts": {
+    "build:css": "sass --load-path=node_modules src/styles/style.scss assets/custom.css --no-source-map --style=compressed",
+    "build:js": "esbuild src/scripts/index.js --bundle --outfile=assets/custom.js --format=iife --minify",
+    "build": "npm run build:css && npm run build:js",
+    "watch": "npm run build && (sass --load-path=node_modules --watch src/styles/style.scss:assets/custom.css & esbuild src/scripts/index.js --bundle --outfile=assets/custom.js --format=iife --watch)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grindandco/2025-frontend-codetest.git"
+  },
+  "author": "grind",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/grindandco/2025-frontend-codetest/issues"
+  },
+  "homepage": "https://github.com/grindandco/2025-frontend-codetest#readme",
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.7",
+    "swiper": "^11.2.10"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.9",
+    "sass": "^1.90.0"
+  }
+}
