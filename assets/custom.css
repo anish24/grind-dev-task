@@ -11956,16 +11956,6 @@ textarea.form-control-lg {
     width: auto !important;
   }
 }
-@media (max-width: 767px) {
-  .competitor-comparison .swiper-slide:first-child:not(.swiper-slide-active) .competitor-comparison__image {
-    margin-right: -30px;
-    transition: transform 0.4s ease, margin 0.4s ease;
-  }
-  .competitor-comparison .swiper-slide:last-child:not(.swiper-slide-active) .competitor-comparison__image {
-    margin-left: -30px;
-    transition: transform 0.4s ease, margin 0.4s ease;
-  }
-}
 .competitor-comparison__block {
   background: #fff;
   border-radius: 12px;

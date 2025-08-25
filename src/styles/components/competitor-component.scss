@@ -101,23 +101,6 @@
         @media (min-width: 768px) {
             width: auto !important;
         }
-
-        @media (max-width: 767px) {
-            &:first-child:not(.swiper-slide-active) {
-                .competitor-comparison__image {
-                    margin-right: -30px;
-                    transition: transform 0.4s ease, margin 0.4s ease;
-                }
-            }
-
-
-            &:last-child:not(.swiper-slide-active) {
-                .competitor-comparison__image {
-                    margin-left: -30px;
-                    transition: transform 0.4s ease, margin 0.4s ease;
-                }
-            }
-        }
     }
 
     &__block {
