@@ -11985,7 +11985,7 @@ textarea.form-control-lg {
   }
 }
 .competitor-comparison__block:nth-child(2) .competitor-comparison__image {
-  transform: rotate(-20deg) scale(0.9);
+  transform: rotate(20deg) scale(0.9);
 }
 @media (min-width: 48rem) {
   .competitor-comparison__block:last-child {

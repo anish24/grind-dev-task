@@ -96,13 +96,13 @@
     <div class="competitor-comparison__container">
 
       {% if section.settings.heading != blank %}
-      <h2 class="competitor-comparison__heading mb-5">
+      <h2 class="competitor-comparison__heading mb-4">
         {{ section.settings.heading }}
         <span>{{ section.settings.heading-two }}</span>
       </h2>
       {% endif %}
 
-      <div class="competitor-comparison__tabs mb-5 mx-auto" role="tablist"
+      <div class="competitor-comparison__tabs mb-4 mx-auto" role="tablist"
         style="background-color: {{ section.settings.tab_color }};">
         {% for block in section.blocks %}
         {% assign tab_id = 'tab-' | append: block.id %}
