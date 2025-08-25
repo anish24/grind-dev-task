@@ -11886,6 +11886,11 @@ textarea.form-control-lg {
     justify-content: space-between;
   }
 }
+@media (min-width: 1200px) {
+  .competitor-comparison__tabs {
+    max-width: 60%;
+  }
+}
 .competitor-comparison__tab {
   display: inline-block;
   padding: 0.3rem 0.8rem;
@@ -12001,8 +12006,15 @@ textarea.form-control-lg {
 .competitor-comparison__block:last-child .competitor-comparison__image {
   rotate: 10deg;
 }
+@media (min-width: 768px) {
+  .competitor-comparison__block.active .competitor-comparison__image {
+    transform: scale(1);
+  }
+}
 .competitor-comparison__image {
   max-width: 160px;
+  transform: scale(0.9);
+  transition: transform 0.6s ease-in-out;
 }
 .competitor-comparison__price {
   font-size: 1.2rem;
@@ -12023,7 +12035,7 @@ textarea.form-control-lg {
 .competitor-comparison__cta {
   background: var(--bs-black);
   color: var(--bs-white);
-  padding: 0.5rem 2.5rem;
+  padding: 0.5rem 3rem;
   font-weight: 600;
 }
 .competitor-comparison__cta:hover {

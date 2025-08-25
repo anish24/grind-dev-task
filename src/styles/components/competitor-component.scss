@@ -28,6 +28,10 @@
         @media (min-width: 768px) {
             justify-content: space-between;
         }
+
+        @media (min-width: 1200px) {
+            max-width: 60%;
+        }
     }
 
     &__tab {
@@ -54,9 +58,11 @@
             &:first-child {
                 order: 1;
             }
+
             &:nth-child(2) {
                 order: 0;
             }
+
             &:last-child {
                 order: 2;
             }
@@ -100,15 +106,15 @@
             &:first-child:not(.swiper-slide-active) {
                 .competitor-comparison__image {
                     margin-right: -30px;
-                    transition: transform 0.4s ease, margin 0.4s ease; 
+                    transition: transform 0.4s ease, margin 0.4s ease;
                 }
             }
 
 
-            &:last-child:not(.swiper-slide-active)  {
+            &:last-child:not(.swiper-slide-active) {
                 .competitor-comparison__image {
                     margin-left: -30px;
-                    transition: transform 0.4s ease, margin 0.4s ease; 
+                    transition: transform 0.4s ease, margin 0.4s ease;
                 }
             }
         }
@@ -133,6 +139,7 @@
             @media (min-width: 768px) {
                 order: 1;
             }
+
             .competitor-comparison__image {
                 rotate: 10deg;
             }
@@ -142,6 +149,7 @@
             @media (min-width: 768px) {
                 order: 0;
             }
+
             .competitor-comparison__image {
                 rotate: -20deg;
             }
@@ -151,14 +159,25 @@
             @media (min-width: 768px) {
                 order: 2;
             }
+
             .competitor-comparison__image {
                 rotate: 10deg;
+            }
+        }
+
+        &.active {
+            .competitor-comparison__image {
+                @media (min-width: 768px) {
+                    transform: scale(1);
+                }
             }
         }
     }
 
     &__image {
         max-width: 160px;
+        transform: scale(.9);
+        transition: transform .6s ease-in-out;
     }
 
     &__price {
@@ -183,7 +202,7 @@
     &__cta {
         background: var(--bs-black);
         color: var(--bs-white);
-        padding: 0.5rem 2.5rem;
+        padding: 0.5rem 3rem;
         font-weight: 600;
 
         &:hover {

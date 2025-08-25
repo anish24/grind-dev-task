@@ -82,18 +82,21 @@
 }
 {% endschema %}
 
-<section class="competitor-comparison" style="background-color: {{ section.settings.background_color }};">
+<section class="competitor-comparison"
+         style="background-color: {{ section.settings.background_color }};"
+         data-tab-color="{{ section.settings.tab_color }}"
+         data-tab-color-highlight="{{ section.settings.tab_color_highlight }}">
   <div class="container">
     <div class="competitor-comparison__container">
 
       {% if section.settings.heading != blank %}
-      <h2 class="competitor-comparison__heading mb-4">
+      <h2 class="competitor-comparison__heading mb-5">
         {{ section.settings.heading }}
         <span>{{ section.settings.heading-two }}</span>
       </h2>
       {% endif %}
 
-      <div class="competitor-comparison__tabs mb-6 mx-auto" role="tablist"
+      <div class="competitor-comparison__tabs mb-5 mx-auto" role="tablist"
         style="background-color: {{ section.settings.tab_color }};">
         {% for block in section.blocks %}
         {% assign tab_id = 'tab-' | append: block.id %}
@@ -151,103 +154,3 @@
     </div>
   </div>
 </section>
-
-<script>
-let competitorSwiper;
-
-document.addEventListener("DOMContentLoaded", () => {
-  const tabs = document.querySelectorAll(".competitor-comparison__tab");
-  const grid = document.querySelector(".competitor-comparison__grid");
-
-  function setActiveTab(index) {
-    tabs.forEach((tab, i) => {
-      const isActive = i === index;
-      tab.classList.remove("competitor-comparison__tab--active");
-
-      if (isActive) {
-        tab.classList.add("competitor-comparison__tab--active");
-        tab.style.backgroundColor = "{{ section.settings.tab_color_highlight }}";
-      } else {
-        tab.style.backgroundColor = "#ffffff";
-      }
-      tab.setAttribute("aria-selected", isActive ? "true" : "false");
-      tab.setAttribute("tabindex", isActive ? "0" : "-1");
-    });
-  }
-
-  function initSwiper() {
-    if (!grid) return;
-
-    if (window.innerWidth < 768 && !competitorSwiper) {
-      grid.classList.add("swiper-container");
-
-      const slides = Array.from(grid.children);
-      const wrapper = document.createElement("div");
-      wrapper.classList.add("swiper-wrapper");
-
-      slides.forEach((slide) => {
-        slide.classList.add("swiper-slide");
-        wrapper.appendChild(slide);
-      });
-
-      grid.innerHTML = "";
-      grid.appendChild(wrapper);
-
-      competitorSwiper = new Swiper(grid, {
-        slidesPerView: 1,
-        centeredSlides: true,
-        spaceBetween: 0,
-        initialSlide: 1,
-        speed: 400,
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-      });
-
-      competitorSwiper.on("slideChange", () => {
-        setActiveTab(competitorSwiper.realIndex);
-      });
-
-      tabs.forEach((tab, index) => {
-        tab.addEventListener("click", () => {
-          competitorSwiper.slideTo(index);
-          setActiveTab(index);
-        });
-      });
-
-      setActiveTab(competitorSwiper.realIndex);
-    }
-
-    if (window.innerWidth >= 768 && competitorSwiper) {
-      competitorSwiper.destroy(true, true);
-      competitorSwiper = null;
-
-      const wrapper = grid.querySelector(".swiper-wrapper");
-      if (wrapper) {
-        while (wrapper.firstChild) {
-          grid.appendChild(wrapper.firstChild);
-        }
-        wrapper.remove();
-        grid.classList.remove("swiper-container");
-      }
-    }
-
-    if (window.innerWidth >= 768) {
-      setActiveTab(1);
-    }
-  }
-
-  initSwiper();
-  window.addEventListener("resize", initSwiper);
-
-  tabs.forEach((tab, index) => {
-    tab.addEventListener("click", () => {
-      if (!competitorSwiper) {
-        setActiveTab(index);
-      }
-    });
-  });
-});
-
-</script>
