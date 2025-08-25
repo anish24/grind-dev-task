@@ -3,16 +3,10 @@
   "name": "Competitor Block",
   "settings": [
     {
-      "type": "text",
+      "type": "richtext",
       "id": "heading",
       "label": "Heading",
-      "default": "Our pods vs."
-    },
-    {
-      "type": "text",
-      "id": "heading-two",
-      "label": "Heading Two",
-      "default": "their pods."
+      "default": "<h2>Our pods vs. their pods</h2>"
     },
     {
       "type": "color",
@@ -96,10 +90,9 @@
     <div class="competitor-comparison__container">
 
       {% if section.settings.heading != blank %}
-      <h2 class="competitor-comparison__heading mb-5">
+      <div class="competitor-comparison__heading mb-5 mx-auto text-center">
         {{ section.settings.heading }}
-        <span>{{ section.settings.heading-two }}</span>
-      </h2>
+      </div>
       {% endif %}
 
       <div class="competitor-comparison__tabs mb-4 mx-auto" role="tablist"

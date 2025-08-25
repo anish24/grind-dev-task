@@ -11860,17 +11860,20 @@ textarea.form-control-lg {
   padding: 4rem 0;
   position: relative;
 }
-.competitor-comparison__heading {
+.competitor-comparison__heading h2,
+.competitor-comparison__heading h3,
+.competitor-comparison__heading h4 {
   font-size: 2rem;
+  font-weight: 600;
+  max-width: 200px;
+  margin: 0 auto;
 }
 @media (min-width: 48rem) {
-  .competitor-comparison__heading {
+  .competitor-comparison__heading h2,
+  .competitor-comparison__heading h3,
+  .competitor-comparison__heading h4 {
     font-size: 3.5rem;
-  }
-}
-@media (max-width: 48rem) {
-  .competitor-comparison__heading span {
-    display: block;
+    max-width: none;
   }
 }
 .competitor-comparison__tabs {
