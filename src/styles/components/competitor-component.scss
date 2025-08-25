@@ -1,259 +1,259 @@
 .competitor-comparison {
-    text-align: center;
-    padding: 4rem 0;
-    position: relative;
+  text-align: center;
+  padding: 4rem 0;
+  position: relative;
 
-    &__heading {
-        font-size: 32px;
+  &__heading {
+    font-size: 2rem;
 
-        @media (min-width: 768px) {
-            font-size: 56px;
-        }
-
-        span {
-            @media (max-width: 768px) {
-                display: block;
-            }
-        }
+    @media (min-width: 48rem) {
+      font-size: 3.5rem;
     }
 
-    &__tabs {
-        padding: 10px 16px;
-        border-radius: 150px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        max-width: 90%;
-
-        @media (min-width: 768px) {
-            justify-content: space-between;
-        }
-
-        @media (min-width: 1200px) {
-            max-width: 60%;
-        }
-    }
-
-    &__tab {
-        display: inline-block;
-        padding: 0.3rem 0.8rem;
-        border-radius: 150px;
-        font-size: 10px;
-        color: var(--black);
-        transition: background 0.3s, color 0.3s;
-        font-weight: 600;
-        border: none;
-        background: var(--bs-white);
-
-        @media (min-width: 768px) {
-            font-size: 1.2rem;
-            padding: 0.5rem 1.5rem;
-        }
-
-        &:hover {
-            cursor: pointer;
-        }
-
-        @media (min-width: 767px) {
-            &:first-child {
-                order: 1;
-            }
-
-            &:nth-child(2) {
-                order: 0;
-            }
-
-            &:last-child {
-                order: 2;
-            }
-        }
-    }
-
-    &__grid {
-        display: none;
-
-        @media (min-width: 768px) {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-        }
-    }
-
-    .swiper-container {
+    span {
+      @media (max-width: 48rem) {
         display: block;
-        width: 100%;
-        padding: 1rem 0;
+      }
+    }
+  }
 
-        @media (min-width: 768px) {
-            display: none;
-        }
+  &__tabs {
+    padding: 0.625rem 1rem;
+    border-radius: 9.375rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 90%;
+
+    @media (min-width: 48rem) {
+      justify-content: space-between;
     }
 
-    .swiper-slide {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 100% !important;
-        margin: 0;
-        align-items: center;
+    @media (min-width: 75rem) {
+      max-width: 60%;
+    }
+  }
 
-        @media (min-width: 768px) {
-            width: auto !important;
-        }
+  &__tab {
+    display: inline-block;
+    padding: 0.1875rem 0.5rem;
+    border-radius: 9.375rem;
+    font-size: 0.625rem;
+    color: var(--black);
+    transition: background 0.3s, color 0.3s;
+    font-weight: 600;
+    border: none;
+    background: var(--bs-white);
+
+    @media (min-width: 48rem) {
+      font-size: 1.2rem;
+      padding: 0.3125rem 0.9375rem;
     }
 
-    &__block {
-        background: #fff;
-        border-radius: 12px;
-        padding: 1rem;
-        flex: unset;
-        width: 100%;
-
-        @media (min-width: 768px) {
-            flex: 1 1 calc(33.333% - 1rem);
-            max-width: 300px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        &:first-child {
-            @media (min-width: 768px) {
-                order: 1;
-            }
-
-            .competitor-comparison__image {
-                rotate: 10deg;
-            }
-        }
-
-        &:nth-child(2) {
-            @media (min-width: 768px) {
-                order: 0;
-            }
-
-            .competitor-comparison__image {
-                rotate: -20deg;
-            }
-        }
-
-        &:last-child {
-            @media (min-width: 768px) {
-                order: 2;
-            }
-
-            .competitor-comparison__image {
-                rotate: 10deg;
-            }
-        }
-
-        &.active {
-            .competitor-comparison__image {
-                @media (min-width: 768px) {
-                    transform: scale(1);
-                }
-            }
-        }
+    &:hover {
+      cursor: pointer;
     }
 
-    &__image {
-        max-width: 160px;
-        transform: scale(.9);
-        transition: transform .6s ease-in-out;
+    @media (min-width: 47.9375rem) {
+      &:first-child {
+        order: 1;
+      }
+
+      &:nth-child(2) {
+        order: 0;
+      }
+
+      &:last-child {
+        order: 2;
+      }
+    }
+  }
+
+  &__grid {
+    display: none;
+
+    @media (min-width: 48rem) {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.625rem;
+      justify-content: center;
+    }
+  }
+
+  .swiper-container {
+    display: block;
+    width: 100%;
+    padding: 0.625rem 0;
+
+    @media (min-width: 48rem) {
+      display: none;
+    }
+  }
+
+  .swiper-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100% !important;
+    margin: 0;
+    align-items: center;
+
+    @media (min-width: 48rem) {
+      width: auto !important;
+    }
+  }
+
+  &__block {
+    background: #fff;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    flex: unset;
+    width: 100%;
+
+    @media (min-width: 48rem) {
+      flex: 1 1 calc(33.333% - 1rem);
+      max-width: 18.75rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    &__price {
-        font-size: 1.2rem;
-        display: flex;
-        margin: 0 auto;
-        flex-direction: column;
-        line-height: 2rem;
+    &:first-child {
+      @media (min-width: 48rem) {
+        order: 1;
+      }
+
+      .competitor-comparison__image {
+        transform: rotate(10deg) scale(0.9);
+      }
     }
 
-    &__price-item {
-        font-size: 18px;
-        color: var(--dark-grey);
+    &:nth-child(2) {
+      @media (min-width: 48rem) {
+        order: 0;
+      }
+
+      .competitor-comparison__image {
+        transform: rotate(-20deg) scale(0.9);
+      }
     }
 
-    &__price-total {
-        font-size: 32px;
-        font-weight: 700;
-        color: var(--bs-black);
+    &:last-child {
+      @media (min-width: 48rem) {
+        order: 2;
+      }
+
+      .competitor-comparison__image {
+        transform: rotate(10deg) scale(0.9);
+      }
     }
 
-    &__cta {
-        background: var(--bs-black);
+    &.active {
+      .competitor-comparison__image {
+        @media (min-width: 48rem) {
+          transform: scale(1) rotate(0deg);
+        }
+      }
+    }
+  }
+
+  &__image {
+    max-width: 10rem;
+    transform: scale(0.9);
+    transition: transform 0.6s ease-in-out;
+  }
+
+  &__price {
+    font-size: 1.2rem;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    line-height: 2rem;
+  }
+
+  &__price-item {
+    font-size: 1.125rem;
+    color: var(--dark-grey);
+  }
+
+  &__price-total {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--bs-black);
+  }
+
+  &__cta {
+    background: var(--bs-black);
+    color: var(--bs-white);
+    padding: 0.3125rem 3rem;
+    font-weight: 600;
+
+    &:hover {
+      background: var(--primary-color);
+      color: var(--bs-black);
+      text-decoration: none;
+    }
+  }
+
+  &__features {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+
+    &--positive {
+      .competitor-comparison__features-item {
+        &::before {
+          content: "✔";
+          color: var(--bs-white);
+          background: var(--grind-green);
+          border-radius: 50%;
+          height: 1.625rem;
+          width: 1.625rem;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          margin-right: 0.625rem;
+        }
+      }
+    }
+
+    &-item {
+      position: relative;
+
+      &::before {
+        content: "x";
         color: var(--bs-white);
-        padding: 0.5rem 3rem;
-        font-weight: 600;
-
-        &:hover {
-            background: var(--primary-color);
-            color: var(--bs-black);
-            text-decoration: none;
-        }
-    }
-
-    &__features {
-        list-style: none;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-
-        &--positive {
-            .competitor-comparison__features-item {
-                &::before {
-                    content: "✔";
-                    color: var(--bs-white);
-                    background: var(--grind-green);
-                    border-radius: 50%;
-                    height: 26px;
-                    width: 26px;
-                    display: inline-flex;
-                    align-items: center;
-                    justify-content: center;
-                    margin-right: 10px;
-                }
-            }
-        }
-
-        &-item {
-            position: relative;
-
-            &::before {
-                content: "x";
-                color: var(--bs-white);
-                background: var(--grind-red);
-                border-radius: 50%;
-                height: 26px;
-                width: 26px;
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                margin-right: 10px;
-            }
-        }
-    }
-
-    .swiper-button-next,
-    .swiper-button-prev {
-        color: var(--bs-black);
-        height: 24px;
-        width: 24px;
-        background: var(--bs-white);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        background: var(--grind-red);
         border-radius: 50%;
-        top: 40%;
-
-        @media (min-width: 768px) {
-            display: none;
-        }
-
-        &::before,
-        &::after {
-            font-size: 1rem;
-        }
+        height: 1.625rem;
+        width: 1.625rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 0.625rem;
+      }
     }
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: var(--bs-black);
+    height: 1.5rem;
+    width: 1.5rem;
+    background: var(--bs-white);
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    top: 40%;
+
+    @media (min-width: 48rem) {
+      display: none;
+    }
+
+    &::before,
+    &::after {
+      font-size: 1rem;
+    }
+  }
 }
