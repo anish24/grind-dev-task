@@ -16,6 +16,7 @@
           "type": "competitor",
           "settings": {
             "image": "shopify://shop_images/33e12b64a216662ba2efc831a99b45a28cfd1918_2.png",
+            "main": false,
             "name": "Nespresso® Pods",
             "price": "£19.50",
             "features": "No subscription discount\nNo subscription savings\nAluminium that ends up in landfill\nMass produced commodity coffee"
@@ -25,6 +26,7 @@
           "type": "competitor",
           "settings": {
             "image": "shopify://shop_images/3ae689f01941632017c1baedd10b16062bab4660.png",
+            "main": true,
             "name": "Grind Pods",
             "price": "£13.95",
             "features": "25% off your first order\nUp to 15% subscription saving\n100% home-compostable\nEthically-sourced speciality coffee"
@@ -34,6 +36,7 @@
           "type": "competitor",
           "settings": {
             "image": "shopify://shop_images/17a44239e3de46c5ec9b3257c76e5d523775993e.png",
+            "main": false,
             "name": "Vertuo Pods",
             "price": "£23.50",
             "features": "No subscription discount\nNo subscription savings\nAluminium that ends up in landfill\nMass produced commodity coffee"
@@ -47,7 +50,7 @@
       ],
       "settings": {
         "heading": "Our pods vs.",
-        "heading-two": "<i>their</i> pods.",
+        "heading-two": "their pods.",
         "background_color": "#ffffff",
         "tab_color": "#f6f2f0",
         "tab_color_highlight": "#f5dadf",

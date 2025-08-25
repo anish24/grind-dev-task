@@ -55,6 +55,11 @@
           "label": "Competitor Image"
         },
         {
+          "type": "checkbox",
+          "id": "main",
+          "label": "Main"
+        },
+        {
           "type": "text",
           "id": "name",
           "label": "Name"
@@ -131,7 +136,7 @@
 
           {% if block.settings.features %}
           <ul
-            class="competitor-comparison__features text-center {% if forloop.index == 2 %}competitor-comparison__features--positive{% endif %}">
+            class="competitor-comparison__features text-center {% if block.settings.main %}competitor-comparison__features--positive{% endif %}">
             {% assign features = block.settings.features | newline_to_br | split: '<br />' %}
             {% for feature in features %}
             <li class="competitor-comparison__features-item">{{ feature }}</li>

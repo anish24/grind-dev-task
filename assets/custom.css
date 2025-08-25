@@ -11875,9 +11875,9 @@ textarea.form-control-lg {
 }
 .competitor-comparison__tabs {
   padding: 0.625rem 1rem;
-  border-radius: 9.375rem;
+  border-radius: 150px;
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   max-width: 90%;
 }
@@ -11894,9 +11894,9 @@ textarea.form-control-lg {
 .competitor-comparison__tab {
   display: inline-block;
   padding: 0.1875rem 0.5rem;
-  border-radius: 9.375rem;
+  border-radius: 150px;
   font-size: 0.625rem;
-  color: var(--black);
+  color: var(--bs-black);
   transition: background 0.3s, color 0.3s;
   font-weight: 600;
   border: none;
@@ -11958,7 +11958,6 @@ textarea.form-control-lg {
 }
 .competitor-comparison__block {
   background: #fff;
-  border-radius: 0.75rem;
   padding: 1rem;
   flex: unset;
   width: 100%;
@@ -11978,7 +11977,7 @@ textarea.form-control-lg {
   }
 }
 .competitor-comparison__block:first-child .competitor-comparison__image {
-  transform: rotate(10deg) scale(0.9);
+  transform: rotate(-10deg) scale(0.9);
 }
 @media (min-width: 48rem) {
   .competitor-comparison__block:nth-child(2) {
@@ -11998,7 +11997,7 @@ textarea.form-control-lg {
 }
 @media (min-width: 48rem) {
   .competitor-comparison__block.active .competitor-comparison__image {
-    transform: scale(1) rotate(0deg);
+    transform: scale(1) rotate(20deg);
   }
 }
 .competitor-comparison__image {
