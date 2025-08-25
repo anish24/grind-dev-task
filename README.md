@@ -1,4 +1,4 @@
-# 2025-frontend-codetest
+# Anish Joshi Grind Dev Task
 Complete reusable block available here: https://aj-grind-demo.myshopify.com/?pb=0
 
 Section settings: 
