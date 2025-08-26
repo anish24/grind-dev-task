@@ -1,5 +1,5 @@
 # Anish Joshi Grind Dev Task
-Complete reusable block available here: https://aj-grind-demo.myshopify.com/
+Complete reusable block called 'Competitor Block' available here: https://aj-grind-demo.myshopify.com/
 
 Section settings: 
 - Heading one
